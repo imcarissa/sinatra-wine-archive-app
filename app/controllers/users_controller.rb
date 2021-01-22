@@ -40,7 +40,16 @@ class UsersController < ApplicationController
 
     post '/users' do
         # here is where we create a new user and persist to the database
-    end
+        # user to the DB
+        # params will look like: 
+        # {
+        #    "name"=>"Liz",
+        #   "email"=>"come@me.bro",
+        #   "password"=>"pw1"
+        # }
+        # only persist a user with a name, email, and password
+        @user = User.create(params)
+        end
 
     # user SHOW route
     get '/users/:id' do
