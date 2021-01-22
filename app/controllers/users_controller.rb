@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
     # the purpose of this route is to render the login page/form
     get '/login' do
-        
+      
         erb :login 
     end
 
@@ -20,8 +20,9 @@ class UsersController < ApplicationController
        
         if @user.authenticate(params[:password])
             # log the user in - create user session
+            session[:user_id] = @user.id
             # redirect to user landing page
-            
+            redirect "/users/#{@user.id}"
         else
             # tell the user they entered invalid credentials
             # redirect to login page
@@ -31,7 +32,13 @@ class UsersController < ApplicationController
     end
 
     # what routes do I need for signup?
+    
     get '/signup' do
         
+    end
+
+    # user SHOW route
+    get '/users/:id' do
+        "Welcome to Your Personal Wine Archive."
     end
 end
