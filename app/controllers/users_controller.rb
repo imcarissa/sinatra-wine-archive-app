@@ -48,11 +48,30 @@ class UsersController < ApplicationController
         #   "password"=>"pw1"
         # }
         # only persist a user with a name, email, and password
-        @user = User.create(params)
+        if params[:name] != "" && params[:email] != "" && params[:password] != ""
+            # valid input
+            @user = User.create(params)
+            # where do I go now?
+            # navigate to the user show page
+            redirect "/users/#{@user.id}"
+        else
+            # not valid input
+            # include a message to user telling them what is wrong
+            redirect '/signup'
         end
+    end
 
     # user SHOW route
     get '/users/:id' do
-        "Welcome to Your Personal Wine Archive."
+        # what do I need to do first?
+        @user = User.find_by(id: params[:id])
+        session[:user_id] = @user.id
+        erb :'/users/show'
     end
+
+    get '/logout' do
+        session.clear 
+        redirect '/'
+    end
+
 end
