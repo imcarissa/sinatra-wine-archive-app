@@ -32,9 +32,14 @@ class UsersController < ApplicationController
     end
 
     # what routes do I need for signup?
-    
+    # this route's job is to render the sign up form
     get '/signup' do
-        
+        #  erb (render) a view
+        erb :signup
+    end
+
+    post '/users' do
+        # here is where we create a new user and persist to the database
     end
 
     # user SHOW route
