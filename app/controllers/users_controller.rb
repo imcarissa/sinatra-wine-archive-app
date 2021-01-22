@@ -8,6 +8,28 @@ class UsersController < ApplicationController
         erb :login 
     end
 
+
+    # purpose of this route is to receive login form
+    # find the user, log user in (create a session)
+    post '/login' do
+        # params looks like: {email: "user@user.com", password: "pw1"}
+        # find user
+        @user = User.find_by(email: params[:email])
+        # authenticate user - veritfy who user says they are
+        # they have the right email/password credentials
+       
+        if @user.authenticate(params[:password])
+            # log the user in - create user session
+            # redirect to user landing page
+            
+        else
+            # tell the user they entered invalid credentials
+            # redirect to login page
+        end
+        # log the user in
+        # redirect user to a landing page
+    end
+
     # what routes do I need for signup?
     get '/signup' do
         
