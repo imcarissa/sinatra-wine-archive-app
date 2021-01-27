@@ -23,7 +23,10 @@ class WineEntriesController < ApplicationController
     end
 
     # show a route for a wine entry
-    
+    get '/wine_entries/:id' do
+        @wine_entry = WineEntry.find(params[:id])
+        erb :'/wine_entries/show'
+    end
 
     # index route for all wine entries
 
