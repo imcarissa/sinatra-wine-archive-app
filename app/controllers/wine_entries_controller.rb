@@ -6,7 +6,9 @@ class WineEntriesController < ApplicationController
     end
 
     # post wine_entries to create a new wine entry
-
+    post '/wine_entries' do
+        
+    end
 
     # show a route for a wine entry
 
