@@ -27,9 +27,12 @@ class ApplicationController < Sinatra::Base
     def current_user
       @current_user ||= User.find_by(id: session[:user_id])
     end
-  
-  end
 
+    def authoerized_to_edit?(wine_entry)
+        @wine_entry.user == current_user
+    end
+    
+  end
 
 
 end
