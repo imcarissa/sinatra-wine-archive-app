@@ -1,5 +1,11 @@
 class WineEntriesController < ApplicationController
 
+    get '/wine_entries' do
+        @wine_entries = WineEntry.all
+        erb :'/wine_entries/index'
+    end
+    
+    
     # get wine_entries/new to render a form create a new entry
     get '/wine_entries/new' do
         erb :'/wine_entries/new'
@@ -37,7 +43,7 @@ class WineEntriesController < ApplicationController
     get '/wine_entries/:id/edit' do
         set_wine_entry
         if logged_in?
-            if @wine_entry.user == current_user
+            if authorized_to_edit?(@wine_entry)
                 erb :'/wine_entries/edit'
             else
                 redirect "users/#{current_user.id}"
@@ -52,7 +58,7 @@ class WineEntriesController < ApplicationController
     # 1. find wine entry
         set_wine_entry
         if logged_in?
-            if wine_entry.user == current_user 
+            if authorized_to_edit(@wine_entry) 
             # 2. modify(update) the entry
                 @wine_entry.update(type: params[:type])
                 # 3. redirect to show page
