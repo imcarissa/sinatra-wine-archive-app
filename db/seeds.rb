@@ -8,6 +8,8 @@ monica = User.create(name: "Monica", email: "ChefGellarM@Javu.net", password: "7
 # Create some wine entries
 
 WineEntry.create(user_id: rachel.id , vintage: 1999)
+        # make new seed file matching schema
+        # where there is 'type'
 
 
 # Use AR to pre-associate data
