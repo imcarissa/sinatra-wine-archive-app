@@ -28,27 +28,51 @@ class WineEntriesController < ApplicationController
         erb :'/wine_entries/show'
     end
 
+
+    # ****** MAJOR PROBLEMS ******
+    # RIGHT NOW, ANYONE CAN EDIT ANOTHER USER'S ENTRIES!!!
+    # ALSO, I CAN EDIT AN ENTRY TO BE BLANK
     # This route should send us to wine_entries/edit.erb
     # it renders an edit form
     get '/wine_entries/:id/edit' do
         set_wine_entry
-        erb :'/wine_entries/edit'
+        if logged_in?
+            if @wine_entry.user == current_user
+                erb :'/wine_entries/edit'
+            else
+                redirect "users/#{current_user.id}"
+            end
+        else
+            redirect '/'
+        end
     end
 
-    # This route 
+    # This route... 
     patch '/wine_entries/:id/' do
-        # 1. find wine entry
+    # 1. find wine entry
         set_wine_entry
-        # 2. modify(update) the entry
-        # 3. redirect to show page
+        if logged_in?
+            if wine_entry.user == current_user 
+            # 2. modify(update) the entry
+                @wine_entry.update(type: params[:type])
+                # 3. redirect to show page
+                redirect "/wine_entries/#{@wine_entry.id}"
+            else
+                redirect "users/#{current_id}"
+            end
+        else
+            redirect '/'
+        end
     end
+    
+    # index route for all wine entries
 
     private
-
+    
     def set_wine_entry
         @wine_entry = WineEntry.find(params[:id])
     end
-    # index route for all wine entries
+    
 
 
 end
