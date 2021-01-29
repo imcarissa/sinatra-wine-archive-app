@@ -28,6 +28,12 @@ class WineEntriesController < ApplicationController
         erb :'/wine_entries/show'
     end
 
+    # This route should send us to journal_entries/edit.erb
+    # it renders an edit form
+    get '/journal_entries/6/edit' do
+        erb :'/journal_entries/edit'
+    end
+
     # index route for all wine entries
 
 
