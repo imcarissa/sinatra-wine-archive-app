@@ -2,8 +2,9 @@ SHOW PAGE FOR WINE ENTRY
 
 <p><%= @wine_entry.type %></p>
 
-Edit Link
+<% if authorized_to_edit?(@wine_entry) %>
 <a href="/wine_entries/<%= @wine_entry.id %>/edit">Edit Entry</a>
 
 
 Delete Link
+<% end %>
