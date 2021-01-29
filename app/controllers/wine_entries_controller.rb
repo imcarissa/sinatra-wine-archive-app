@@ -24,21 +24,30 @@ class WineEntriesController < ApplicationController
 
     # show a route for a wine entry
     get '/wine_entries/:id' do
-        @wine_entry = WineEntry.find(params[:id])
+        set_wine_entry
         erb :'/wine_entries/show'
     end
 
     # This route should send us to wine_entries/edit.erb
     # it renders an edit form
     get '/wine_entries/:id/edit' do
-        @wine_entry = WineEntry.find(params[:id])
+        set_wine_entry
         erb :'/wine_entries/edit'
     end
 
+    # This route 
     patch '/wine_entries/:id/' do
-        "hello"
+        # 1. find wine entry
+        set_wine_entry
+        # 2. modify(update) the entry
+        # 3. redirect to show page
     end
 
+    private
+
+    def set_wine_entry
+        @wine_entry = WineEntry.find(params[:id])
+    end
     # index route for all wine entries
 
 
