@@ -2,7 +2,7 @@ EDIT PAGE FOR WINE ENTRY
 <br>
 <br>
 <form action="/wine_entries/<%= @wine_entry.id %>" method="">
-   <input type="hidden" name="_method" value="patch">
+   <input type="hidden" name="method" value="patch">
    <label for="type">Type of Wine:</label>
    <input type="text" name="type" value="<%= @wine_entry.type %>">
    <input type="submit" name="" value="Update">
