@@ -15,16 +15,19 @@
   </head>
   <body>
     <div class="menu">
-      <% if logged in? %>
-      <a href="/logout">Logout</a>
+      <% if logged_in? %>
       <a href="/wine_entries">View Wine Collection</a><br>
-      <a href="/wine_entries/new">New Wine Entry</a>
-      <br>
+      <a href="/wine_entries/new">New Wine Entry</a><br>
       <br>
       <br>
       <a href="/logout">Logout</a>
-    </div>
-
+      <br>
+      <br>
+      <% end %>
+      </div>
+    <% if flash[:message] %>
+      <h3><%= flash[:message] %></h3>
+    <% end %>
     <div class="wrapper">
 
         <%= yield %>
