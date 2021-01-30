@@ -1,4 +1,7 @@
 <h2>This is the login page</h2>
+<% if flash[:message] %>
+    <h3><%= flash[:message] %></h3>
+<% end %>
 <br>
 <br>
 <form action="/login" method="post">
