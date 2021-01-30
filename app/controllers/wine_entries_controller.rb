@@ -21,9 +21,11 @@ class WineEntriesController < ApplicationController
         # I want to create a wine entry if the user is logged in
         if params[:type] != ""
             # create a new entry
+            flash[:message] = "Wine entry successfully created"
             @wine_entry = WineEntry.create(type: params[:type], user_id: current_user.id, vintage: params[:vintage], price: params[:price], region: params[:region])
             redirect "/wine_entries/#{@wine_entry.id}"
         else
+            flash[:message] = "Uh oh! Something went wrong."
             redirect '/wine_entries/new'
         end
     end
