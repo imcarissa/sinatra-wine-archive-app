@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
     # the purpose of this route is to render the login page/form
     get '/login' do
-      
         erb :login 
     end
 
@@ -18,14 +17,16 @@ class UsersController < ApplicationController
         # authenticate user - veritfy who user says they are
         # they have the right email/password credentials
        
-        if @user.authenticate(params[:password])
+        if@user &&  @user.authenticate(params[:password])
             # log the user in - create user session
             session[:user_id] = @user.id
             # redirect to user landing page
             redirect "/users/#{@user.id}"
         else
+            flash[:message] = "Invalid input. Please sign up to log in."
             # tell the user they entered invalid credentials
             # redirect to login page
+            redirect '/login'
         end
         # log the user in
         # redirect user to a landing page
