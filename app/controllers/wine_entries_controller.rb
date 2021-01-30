@@ -70,6 +70,16 @@ class WineEntriesController < ApplicationController
             redirect '/'
         end
     end
+
+    delete '/wine_entry/:id' do
+        set_wine_entry
+        if authorized_to_edit?(@wine_entry)
+            @wine_entry.destroy
+            redirect '/wine_entries'
+        else
+            redirect '/wine_entries'
+        end
+    end
     
     # index route for all wine entries
 
