@@ -58,7 +58,7 @@ class WineEntriesController < ApplicationController
     # 1. find wine entry
         set_wine_entry
         if logged_in?
-            if authorized_to_edit(@wine_entry) 
+            if authorized_to_edit(@wine_entry) && params[:type] != ""
             # 2. modify(update) the entry
                 @wine_entry.update(type: params[:type])
                 # 3. redirect to show page
