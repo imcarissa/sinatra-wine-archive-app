@@ -21,9 +21,10 @@ class UsersController < ApplicationController
             # log the user in - create user session
             session[:user_id] = @user.id
             # redirect to user landing page
+            flash[:message] = "Welcome, #{@user.name}!"
             redirect "/users/#{@user.id}"
         else
-            flash[:message] = "Invalid input. Please sign up to log in."
+            flash[:error] = "Invalid input. Please sign up to log in."
             # tell the user they entered invalid credentials
             # redirect to login page
             redirect '/login'
@@ -54,10 +55,12 @@ class UsersController < ApplicationController
             @user = User.create(params)
             # where do I go now?
             # navigate to the user show page
+            flash[:message] = "Success! Welcome, #{@user.name}!"
             redirect "/users/#{@user.id}"
         else
             # not valid input
             # include a message to user telling them what is wrong
+            flash[:error] = "Failed to create account."
             redirect '/signup'
         end
     end
