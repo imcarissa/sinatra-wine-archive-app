@@ -13,8 +13,10 @@ Specs:
 - [x] Include user accounts with unique login attribute (username or email)
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
         * User has full CRUD on wine entries
-- [ ] Ensure that users can't modify content created by other users
-- [ ] Include user input validations
+- [x] Ensure that users can't modify content created by other users
+        * Dont show edit or delete links, also use helper method in controller to ensure edit and delete actions can only happen if current user owns the entry
+- [x] Include user input validations
+        * cannot create a blank user or blank wine entry
 - [ ] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
