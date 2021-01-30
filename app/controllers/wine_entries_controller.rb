@@ -21,7 +21,7 @@ class WineEntriesController < ApplicationController
         # I want to create a wine entry if the user is logged in
         if params[:type] != ""
             # create a new entry
-            @wine_entry = WineEntry.create(type: params[:type], user_id: current_user.id)
+            @wine_entry = WineEntry.create(type: params[:type], user_id: current_user.id, vintage: params[:vintage], price: params[:price], region: params[:region])
             redirect "/wine_entries/#{@wine_entry.id}"
         else
             redirect '/wine_entries/new'
