@@ -60,6 +60,7 @@ class UsersController < ApplicationController
         else
             # not valid input
             # include a message to user telling them what is wrong
+            binding.pry
             flash[:error] = "Failed to create account."
             redirect '/signup'
         end
