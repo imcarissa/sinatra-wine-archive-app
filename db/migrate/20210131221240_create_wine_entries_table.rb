@@ -1,4 +1,4 @@
-class CreateWineEntries < ActiveRecord::Migration
+class CreateWineEntriesTable < ActiveRecord::Migration
   def change
     create_table :wine_entries do |t|
       t.string :wine_type
