@@ -8,6 +8,7 @@ class WineEntriesController < ApplicationController
     
     # get wine_entries/new to render a form create a new entry
     get '/wine_entries/new' do
+        redirect_if_not_logged_in
         erb :'/wine_entries/new'
     end
 
@@ -19,8 +20,8 @@ class WineEntriesController < ApplicationController
         # I only want to save the entry if it has content
         if params[:wine_type] != ""
             # create a new entry
-            flash[:message] = "Wine entry successfully created"
             @wine_entry = WineEntry.create(wine_type: params[:wine_type], user_id: current_user.id)
+            flash[:message] = "Wine entry successfully created" if @wine_entry.id
             redirect "/wine_entries/#{@wine_entry.id}"
         else
             flash[:errors] = "Uh oh! Something went wrong. Please provide content for your entry."
@@ -41,8 +42,8 @@ class WineEntriesController < ApplicationController
     # This route should send us to wine_entries/edit.erb
     # it renders an edit form
     get '/wine_entries/:id/edit' do
-        set_wine_entry
         redirect_if_not_logged_in
+        set_wine_entry
         if authorized_to_edit?(@wine_entry)
             erb :'/wine_entries/edit'
         else
@@ -53,9 +54,9 @@ class WineEntriesController < ApplicationController
     # This route... 
     patch '/wine_entries/:id/' do
     # 1. find wine entry
-        set_wine_entry
         redirect_if_not_logged_in
-        if authorized_to_edit(@wine_entry) && params[:wine_type] != ""
+        set_wine_entry
+        if authorized_to_edit?(wine_entry) && params[:wine_type] != ""
         # 2. modify(update) the entry
             @wine_entry.update(wine_type: params[:wine_type])
             # 3. redirect to show page
