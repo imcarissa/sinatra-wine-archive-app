@@ -17,10 +17,10 @@ class WineEntriesController < ApplicationController
         # I only want to create a wine entry if the user is logged in
         redirect_if_not_logged_in
         # I only want to save the entry if it has content
-        if params[:type] != ""
+        if params[:wine_type] != ""
             # create a new entry
             flash[:message] = "Wine entry successfully created"
-            @wine_entry = WineEntry.create(type: params[:type], user_id: current_user.id, vintage: params[:vintage], price: params[:price], region: params[:region])
+            @wine_entry = WineEntry.create(wine_type: params[:wine_type], user_id: current_user.id)
             redirect "/wine_entries/#{@wine_entry.id}"
         else
             flash[:errors] = "Uh oh! Something went wrong. Please provide content for your entry."
@@ -55,9 +55,9 @@ class WineEntriesController < ApplicationController
     # 1. find wine entry
         set_wine_entry
         redirect_if_not_logged_in
-        if authorized_to_edit(@wine_entry) && params[:type] != ""
+        if authorized_to_edit(@wine_entry) && params[:wine_type] != ""
         # 2. modify(update) the entry
-            @wine_entry.update(type: params[:type])
+            @wine_entry.update(wine_type: params[:wine_type])
             # 3. redirect to show page
             redirect "/wine_entries/#{@wine_entry.id}"
         else
