@@ -14,18 +14,16 @@ class WineEntriesController < ApplicationController
     # post wine_entries to create a new wine entry
     post '/wine_entries' do
         # I want to create a new wine entry and save it to the DB
+        # I only want to create a wine entry if the user is logged in
+        redirect_if_not_logged_in
         # I only want to save the entry if it has content
-        if !logged_in?
-            redirect '/'
-        end
-        # I want to create a wine entry if the user is logged in
         if params[:type] != ""
             # create a new entry
             flash[:message] = "Wine entry successfully created"
             @wine_entry = WineEntry.create(type: params[:type], user_id: current_user.id, vintage: params[:vintage], price: params[:price], region: params[:region])
             redirect "/wine_entries/#{@wine_entry.id}"
         else
-            flash[:errors] = "Uh oh! Something went wrong."
+            flash[:errors] = "Uh oh! Something went wrong. Please provide content for your entry."
             redirect '/wine_entries/new'
         end
     end
@@ -44,32 +42,26 @@ class WineEntriesController < ApplicationController
     # it renders an edit form
     get '/wine_entries/:id/edit' do
         set_wine_entry
-        if logged_in?
-            if authorized_to_edit?(@wine_entry)
-                erb :'/wine_entries/edit'
-            else
-                redirect "users/#{current_user.id}"
-            end
+        redirect_if_not_logged_in
+        if authorized_to_edit?(@wine_entry)
+            erb :'/wine_entries/edit'
         else
-            redirect '/'
-        end
+            redirect "users/#{current_user.id}"
+        end   
     end
 
     # This route... 
     patch '/wine_entries/:id/' do
     # 1. find wine entry
         set_wine_entry
-        if logged_in?
-            if authorized_to_edit(@wine_entry) && params[:type] != ""
-            # 2. modify(update) the entry
-                @wine_entry.update(type: params[:type])
-                # 3. redirect to show page
-                redirect "/wine_entries/#{@wine_entry.id}"
-            else
-                redirect "users/#{current_id}"
-            end
+        redirect_if_not_logged_in
+        if authorized_to_edit(@wine_entry) && params[:type] != ""
+        # 2. modify(update) the entry
+            @wine_entry.update(type: params[:type])
+            # 3. redirect to show page
+            redirect "/wine_entries/#{@wine_entry.id}"
         else
-            redirect '/'
+            redirect "users/#{current_id}"
         end
     end
 
@@ -77,6 +69,7 @@ class WineEntriesController < ApplicationController
         set_wine_entry
         if authorized_to_edit?(@wine_entry)
             @wine_entry.destroy
+            flash[:message] = "Successfully deleted entry."
             redirect '/wine_entries'
         else
             redirect '/wine_entries'
