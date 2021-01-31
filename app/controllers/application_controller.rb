@@ -33,8 +33,13 @@ class ApplicationController < Sinatra::Base
         @wine_entry.user == current_user
     end
 
-  end
+    def redirect_if_not_logged_in
+      if !logged_in?
+        flash[:errors] = "You must be logged in to view the page."
+        redirect '/'
+      end
+    end
 
-    # build helper method for redirecting if not logged in
+  end
 
 end
