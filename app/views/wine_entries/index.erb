@@ -2,7 +2,7 @@ PAGE FOR ALL WINE ENTRIES
 
 <% @wine_entries.each do |wine| %>
     <h4><a href="/wine_entries/<%= wine_entry.id %>"><%= wine_entry.created_at %></a></h4>
-    <p><%= wine_entry.type %></p>
+    <p><%= wine_entry.wine_type %></p>
     <p>By <%= wine_entry.user.name %></p>
     <br>
     <br>
