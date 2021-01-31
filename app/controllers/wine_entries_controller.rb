@@ -25,7 +25,7 @@ class WineEntriesController < ApplicationController
             @wine_entry = WineEntry.create(type: params[:type], user_id: current_user.id, vintage: params[:vintage], price: params[:price], region: params[:region])
             redirect "/wine_entries/#{@wine_entry.id}"
         else
-            flash[:message] = "Uh oh! Something went wrong."
+            flash[:errors] = "Uh oh! Something went wrong."
             redirect '/wine_entries/new'
         end
     end
