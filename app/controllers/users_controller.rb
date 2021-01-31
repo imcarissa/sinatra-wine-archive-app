@@ -50,17 +50,18 @@ class UsersController < ApplicationController
         #   "password"=>"pw1"
         # }
         # only persist a user with a name, email, and password
-        if params[:name] != "" && params[:email] != "" && params[:password] != ""
+        @user = User.new(params)
+        if @user.save 
             # valid input
-            @user = User.create(params)
+            session[:user_id] = @user.id
             # where do I go now?
             # navigate to the user show page
-            flash[:message] = "Successfully created an account! Welcome, #{@user.name}!"
+            flash[:message] = "Successfully created account! Welcome, #{@user.name}!"
             redirect "/users/#{@user.id}"
         else
             # not valid input
             # include a message to user telling them what is wrong
-            flash[:errors] = "Failed to create account. Please fill in all blank space to create an account."
+            flash[:errors] = "Failed to create account: #{@user.errors.full_messages.to_sentence}"
             redirect '/signup'
         end
     end
