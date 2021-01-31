@@ -70,7 +70,7 @@ class UsersController < ApplicationController
     get '/users/:id' do
         # what do I need to do first?
         @user = User.find_by(id: params[:id])
-        session[:user_id] = @user.id
+        redirect_if_not_logged_in
         erb :'/users/show'
     end
 
