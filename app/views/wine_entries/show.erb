@@ -7,7 +7,7 @@
 <p><strong>Region:</strong> <%= @wine_entry.region %></p>
 <p><strong>Notes about the wine:</strong> <%= @wine_entry.wine_notes %></p>
 <br>
-<p>created on <%= @wine_entry.created_at %></p>
+<p>created on <%= @wine_entry.formatted_created_at %></p>
 <br>
 <p>created by <%= @wine_entry.user.name %></p>
 
