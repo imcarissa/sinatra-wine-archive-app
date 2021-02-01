@@ -3,7 +3,12 @@ EDIT PAGE FOR WINE ENTRY
 <br>
 <form action="/wine_entries/<%= @wine_entry.id %>" method="">
    <input type="hidden" name="method" value="patch">
+   <label for="wine name">Name of Wine:</label>
+   <input type="text" name="type" value="<%= @wine_entry.wine_name %>">
    <label for="type">Type of Wine:</label>
    <input type="text" name="type" value="<%= @wine_entry.wine_type %>">
+   <label for="vintage">Vintage:</label>
+   <label for="region">Region:</label>
+   <label for="wine notes">Notes:</label>
    <input type="submit" name="" value="Update">
 </form>

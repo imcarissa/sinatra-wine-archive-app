@@ -1,6 +1,12 @@
-<h2>SHOW PAGE FOR WINE ENTRY</h2>
+<h4>(SHOW PAGE FOR WINE ENTRY)</h4>
 <br>
+<br>
+<p><h2><%= @wine_entry.wine_name %></h2></p>
 <p><strong>Type of Wine:</strong> <%= @wine_entry.wine_type %></p>
+<p><strong>Vintage</strong> <%= @wine_entry.vintage %></p>
+<p><strong>Region:</strong> <%= @wine_entry.region %></p>
+<p><strong>Notes about the wine:</strong> <%= @wine_entry.wine_notes %></p>
+
 
 
 <% if authorized_to_edit?(@wine_entry) %>
