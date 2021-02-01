@@ -1,6 +1,7 @@
 class WineEntriesController < ApplicationController
 
     get '/wine_entries' do
+        redirect_if_not_logged_in
         @wine_entries = WineEntry.all
         erb :'/wine_entries/index'
     end
