@@ -1,6 +1,6 @@
-SHOW PAGE FOR WINE ENTRY
-
-<p><%= @wine_entry.wine_type %></p>
+<h2>SHOW PAGE FOR WINE ENTRY</h2>
+<br>
+<p><strong>Type of Wine:</strong> <%= @wine_entry.wine_type %></p>
 
 
 <% if authorized_to_edit?(@wine_entry) %>
@@ -9,6 +9,6 @@ SHOW PAGE FOR WINE ENTRY
     <br>
     <form action="/wine_entries/<%= @wine_entry.id %>" method="post">
         <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete Entry">
+        <input type="submit" name = "" value="Delete Entry">
     </form>
 <% end %>
