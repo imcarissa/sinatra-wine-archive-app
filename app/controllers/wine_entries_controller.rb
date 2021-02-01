@@ -66,7 +66,7 @@ class WineEntriesController < ApplicationController
         end
     end
 
-    delete '/wine_entry/:id' do
+    delete '/wine_entries/:id' do
         set_wine_entry
         if authorized_to_edit?(@wine_entry)
             @wine_entry.destroy
