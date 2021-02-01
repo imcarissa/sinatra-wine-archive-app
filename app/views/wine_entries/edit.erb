@@ -2,6 +2,7 @@
 <br>
 <br>
 <form action="/wine_entries/<%= @wine_entry.id %>" method="">
+
    <input type="hidden" name="method" value="patch">
    <label for="wine name">Name of Wine:</label>
    <input type="text" name="name" value="<%= @wine_entry.wine_name %>">
