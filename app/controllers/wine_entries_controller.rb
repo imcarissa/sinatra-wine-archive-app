@@ -7,20 +7,15 @@ class WineEntriesController < ApplicationController
     end
     
     
-    # get wine_entries/new to render a form create a new entry
     get '/wine_entries/new' do
         redirect_if_not_logged_in
         erb :'/wine_entries/new'
     end
 
-    # post wine_entries to create a new wine entry
+    
     post '/wine_entries' do
-        # I want to create a new wine entry and save it to the DB
-        # I only want to create a wine entry if the user is logged in
         redirect_if_not_logged_in
-        # I only want to save the entry if it has content
         if params[:wine_type] != ""
-            # create a new entry
             @wine_entry = WineEntry.create(wine_type: params[:wine_type], user_id: current_user.id, wine_name: params[:wine_name], vintage: params[:vintage], region: params[:region], wine_notes: params[:wine_notes])
             flash[:message] = "Wine entry successfully created" if @wine_entry.id
             redirect "/wine_entries/#{@wine_entry.id}"
@@ -30,18 +25,13 @@ class WineEntriesController < ApplicationController
         end
     end
 
-    # show a route for a wine entry
+    
     get '/wine_entries/:id' do
         set_wine_entry
         erb :'/wine_entries/show'
     end
 
 
-    # ****** MAJOR PROBLEMS ******
-    # RIGHT NOW, ANYONE CAN EDIT ANOTHER USER'S ENTRIES!!!
-    # ALSO, I CAN EDIT AN ENTRY TO BE BLANK
-    # This route should send us to wine_entries/edit.erb
-    # it renders an edit form
     get '/wine_entries/:id/edit' do
         redirect_if_not_logged_in
         set_wine_entry
@@ -52,15 +42,12 @@ class WineEntriesController < ApplicationController
         end   
     end
 
-    # This route... 
+   
     patch '/wine_entries/:id/' do
-    # 1. find wine entry
         redirect_if_not_logged_in
         set_wine_entry
         if authorized_to_edit?(wine_entry) && params[:wine_type] != ""
-        # 2. modify(update) the entry
             @wine_entry.update(wine_type: params[:wine_type], user_id: current_user.id, wine_name: params[:wine_name], vintage: params[:vintage], region: params[:region], wine_notes: params[:wine_notes])
-            # 3. redirect to show page
             redirect "/wine_entries/#{@wine_entry.id}"
         else
             redirect "users/#{current_id}"
@@ -78,7 +65,6 @@ class WineEntriesController < ApplicationController
         end
     end
     
-    # index route for all wine entries
 
     private
     
