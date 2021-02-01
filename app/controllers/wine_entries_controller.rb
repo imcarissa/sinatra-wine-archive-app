@@ -20,7 +20,7 @@ class WineEntriesController < ApplicationController
         # I only want to save the entry if it has content
         if params[:wine_type] != ""
             # create a new entry
-            @wine_entry = WineEntry.create(wine_type: params[:wine_type], user_id: current_user.id)
+            @wine_entry = WineEntry.create(wine_name: params[:wine_name], wine_type: params[:wine_type], user_id: current_user.id, vintage: params[:vintage], region: params[:region], wine_notes: params[:wine_notes])
             flash[:message] = "Wine entry successfully created" if @wine_entry.id
             redirect "/wine_entries/#{@wine_entry.id}"
         else
