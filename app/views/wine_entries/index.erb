@@ -4,7 +4,7 @@ ALL WINE ENTRIES
 <% @wine_entries.each do |wine_entry| %>
     <h4><a href="/wine_entries/<%= wine_entry.id %>"><%= wine_entry.created_at %></a></h4>
     <p><strong>Name of Wine:</strong> <%= wine_entry.wine_name %></p>
-    <p><strong>Type of Wine:</strong> <%= wine_entry.wine_type %></p>
+    <p><strong>Type:</strong> <%= wine_entry.wine_type %></p>
     <p><strong>Vintage:</strong> <%= wine_entry.vintage %></p>
     <p><strong>Region:</strong> <%= wine_entry.region %></p>
     <p><strong>Notes about the wine:</strong> <%= wine_entry.wine_notes %></p>
