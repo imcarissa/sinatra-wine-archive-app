@@ -26,7 +26,7 @@
       <br>
       <% end %>
     </div>
-    
+   
     <div class="wrapper">
 
       <% if flash[:message] %>
@@ -35,11 +35,9 @@
       <% if flash[:errors] %>
         <h3 style="color: red;"><em><%= flash[:errors] %></h3></em>
       <% end %>
-
-
-        <%= yield %>
+    
+      <%= yield %>
       
-
       <footer class="branding">
         <small>&copy; 2021 <strong>SinatraWineApp</strong></small>
       </footer>
