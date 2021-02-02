@@ -20,7 +20,7 @@ class WineEntriesController < ApplicationController
             flash[:message] = "Wine entry successfully created" if @wine_entry.id
             redirect "/wine_entries/#{@wine_entry.id}"
         else
-            flash[:errors] = "Uh oh! Something went wrong. Please provide content for your entry."
+            flash[:errors] = "Uh oh! You can't have a blank entry. Please provide content for one of the spaces provided. You can edit the entry later."
             redirect '/wine_entries/new'
         end
     end
