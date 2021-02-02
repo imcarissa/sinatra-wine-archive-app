@@ -3,7 +3,7 @@
 <br>
 <form action="/wine_entries/<%= @wine_entry.id %>" method="">
    <input type="hidden" name="_method" value="patch">
-   <label for="wine name">Name of Wine:</label>
+   <label for="wine_name">Name of Wine:</label>
    <input type="text" name="wine_name" value="<%= @wine_entry.wine_name %>">
    <br>
    <br>
@@ -20,7 +20,7 @@
    <br>
    <br>
    <label for="wine notes">Personal Notes:</label>
-   <textarea name="wine_notes" style=width:auto; height:auto;"><%= @wine_entry.wine_notes %></textarea>
+   <textarea name="wine_notes" style="width:auto; height:auto;"><%= @wine_entry.wine_notes %></textarea>
    <br>
    <br>
    <input type="submit" name="" value="Edit Entry">
