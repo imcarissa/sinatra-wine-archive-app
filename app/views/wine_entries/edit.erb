@@ -2,7 +2,6 @@
 <br>
 <br>
 <form action="/wine_entries/<%= @wine_entry.id %>" method="">
-
    <input type="hidden" name="_method" value="patch">
    <label for="wine name">Name of Wine:</label>
    <input type="text" name="wine_name" value="<%= @wine_entry.wine_name %>">
@@ -20,9 +19,9 @@
    <input type="text" name="region" value="<%= @wine_entry.region %>">
    <br>
    <br>
-   <label for="wine notes">Notes:</label>
-   <input type="text" name="wine_notes" value="<%= @wine_entry.wine_notes %>">
+   <label for="wine notes">Personal Notes:</label>
+   <textarea name="wine_notes" style=width:auto; height:auto;"><%= @wine_entry.wine_notes %></textarea>
    <br>
    <br>
-   <input type="submit" name="Update" value="Update">
+   <input type="submit" name="" value="Edit Entry">
 </form>
