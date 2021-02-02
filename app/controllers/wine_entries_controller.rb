@@ -43,15 +43,15 @@ class WineEntriesController < ApplicationController
     end
 
    
-    patch '/wine_entries/:id/' do
+    patch '/wine_entries/:id' do
         redirect_if_not_logged_in
         set_wine_entry
-        if authorized_to_edit?(wine_entry) && params[:wine_name] != ""
+        if authorized_to_edit?(@wine_entry) && params[:wine_name] != ""
             @wine_entry.update(wine_type: params[:wine_type], user_id: current_user.id, wine_name: params[:wine_name], vintage: params[:vintage], region: params[:region], wine_notes: params[:wine_notes])
             flash[:message] = "Entry successfully edited."
             redirect "/wine_entries/#{@wine_entry.id}"
         else
-            redirect "/users/#{current_id}"
+            redirect "/users/#{current_user.id}"
         end
     end
 
