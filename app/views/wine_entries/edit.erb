@@ -3,13 +3,13 @@
 <br>
 <form action="/wine_entries/<%= @wine_entry.id %>" method="">
 
-   <input type="hidden" name="method" value="patch">
+   <input type="hidden" name="_method" value="patch">
    <label for="wine name">Name of Wine:</label>
-   <input type="text" name="name" value="<%= @wine_entry.wine_name %>">
+   <input type="text" name="wine_name" value="<%= @wine_entry.wine_name %>">
    <br>
    <br>
    <label for="type">Type:</label>
-   <input type="text" name="type" value="<%= @wine_entry.wine_type %>">
+   <input type="text" name="wine_type" value="<%= @wine_entry.wine_type %>">
    <br>
    <br>
    <label for="vintage">Vintage:</label>
@@ -21,8 +21,8 @@
    <br>
    <br>
    <label for="wine notes">Notes:</label>
-   <input type="text" name="notes" value="<%= @wine_entry.wine_notes %>">
+   <input type="text" name="wine_notes" value="<%= @wine_entry.wine_notes %>">
    <br>
    <br>
-   <input type="submit" name="" value="Update">
+   <input type="submit" name="Update" value="Update">
 </form>
