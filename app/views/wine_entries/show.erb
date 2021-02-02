@@ -1,14 +1,13 @@
 <h3>Your Wine Submission</h3>
 <br>
 <br>
-<p><strong>Name of Wine:</strong><%= @wine_entry.wine_name %></p>
+<p><strong>Name of Wine:</strong> <%= @wine_entry.wine_name %></p>
 <p><strong>Type:</strong> <%= @wine_entry.wine_type %></p>
 <p><strong>Vintage:</strong> <%= @wine_entry.vintage %></p>
 <p><strong>Region:</strong> <%= @wine_entry.region %></p>
 <p><strong>Notes:</strong> <%= @wine_entry.wine_notes %></p>
 <br>
 <p>created on <%= @wine_entry.formatted_created_at %></p>
-<br>
 <p>created by <%= @wine_entry.user.name %></p>
 
 
