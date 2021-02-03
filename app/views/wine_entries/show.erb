@@ -1,4 +1,6 @@
-<h2>Your Latest Wine Submission</h2>
+<h2>Your Wine Entry</h2>
+<h5>created on <%= @wine_entry.formatted_created_at %></h5>
+<h5>created by <%= @wine_entry.user.name %></h5>
 <br>
 <br>
 <p><strong>Name of Wine:</strong> <%= @wine_entry.wine_name %></p>
@@ -6,17 +8,15 @@
 <p><strong>Vintage:</strong> <%= @wine_entry.vintage %></p>
 <p><strong>Region:</strong> <%= @wine_entry.region %></p>
 <p><strong>Personal Notes:</strong> <%= @wine_entry.wine_notes %></p>
-<br>
-<br><h5>created on <%= @wine_entry.formatted_created_at %></h5>
-<br><h5>created by <strong><%= @wine_entry.user.name %></strong></h5>
-<br>
-<br>
+
+
+
 <% if authorized_to_edit?(@wine_entry) %>
     <a href="/wine_entries/<%= @wine_entry.id %>/edit">Edit Entry</a>
     <br>
     <br>
     <form action="/wine_entries/<%= @wine_entry.id %>" method="post">
         <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" name = "" value="Delete Entry">
+        <p align="right"><input type="submit" name = "" value="Delete Entry"></p>
     </form>
 <% end %>
