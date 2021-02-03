@@ -7,28 +7,30 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title>SinatraWineApp</title>
+    <title>Sinatra Wine Archive App</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
+
   <body>
-    
-    <div class="menu">
-      <% if logged_in? %>
-      <a href="/wine_entries">View Wine Collection</a>
-      <br>
-      <br>
-      <a href="/wine_entries/new">New Wine Entry</a>
-      <br>
-      <br>
-      <br>
-      <a href="/logout">Logout</a>
-      <br>
-      <br>
-      <% end %>
-    </div>
+    <div class="navigation">
+       <br>
+       <% if logged_in? %>
+       <a href="/wine_entries">View Wine Collection</a>
+       <br>
+       <br>
+       <a href="/wine_entries/new">New Wine Entry</a>
+       <br>
+       <br>
+       <br>
+       <a href="/logout">Logout</a>
+       <br>
+       <br>
+       <% end %>
+    </div> 
+
    
     <div class="wrapper">
 
