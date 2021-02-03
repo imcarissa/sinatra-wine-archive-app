@@ -1,4 +1,4 @@
-<h2>Your Wine Entry</h2>
+<h2>Wine Entry</h2>
 <h5>created on <%= @wine_entry.formatted_created_at %></h5>
 <h5>created by <%= @wine_entry.user.name %></h5>
 <br>
@@ -8,8 +8,6 @@
 <p><strong>Vintage:</strong> <%= @wine_entry.vintage %></p>
 <p><strong>Region:</strong> <%= @wine_entry.region %></p>
 <p><strong>Personal Notes:</strong> <%= @wine_entry.wine_notes %></p>
-
-
 
 <% if authorized_to_edit?(@wine_entry) %>
     <a href="/wine_entries/<%= @wine_entry.id %>/edit">Edit Entry</a>
