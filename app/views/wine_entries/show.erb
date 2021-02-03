@@ -10,9 +10,7 @@
 <p><strong>Personal Notes:</strong> <%= @wine_entry.wine_notes %></p>
 
 <% if authorized_to_edit?(@wine_entry) %>
-    <a href="/wine_entries/<%= @wine_entry.id %>/edit">Edit Entry</a>
-    <br>
-    <br>
+    <a href="/wine_entries/<%= @wine_entry.id %>/edit"><input type="submit" value="Edit Entry"></a>
     <form action="/wine_entries/<%= @wine_entry.id %>" method="post">
         <input type="hidden" name="_method" value="DELETE">
         <p align="right"><input type="submit" name = "" value="Delete Entry"></p>
