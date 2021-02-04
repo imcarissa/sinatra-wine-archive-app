@@ -1,6 +1,8 @@
 A wine app that allows users to build their own archive.
 
-Users can create a wine entry, document the descriptions of the bottle, edit their own entries, and delete their own entries.
+Users can create a wine entry and document the descriptions of the bottle. This can be used for wine enthusiasts of all levels: archive a bottle you own in your collection, have come across during an occasion, or something you saw and would like to try for the future.
+
+User can edit their own entries, and delete their own entries.
 
 
 LICENSE
