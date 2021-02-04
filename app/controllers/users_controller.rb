@@ -13,7 +13,7 @@ class UsersController < ApplicationController
             flash[:message] = "Welcome, #{@user.name}!"
             redirect "/users/#{@user.id}"
         else
-            flash[:errors] = "Invalid input. Please sign up to log in."
+            flash[:errors] = "Invalid input. Please put in the right credentials or sign up for an account to log in."
             redirect '/login'
         end
     end
