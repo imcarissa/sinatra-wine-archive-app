@@ -20,7 +20,7 @@ class WineEntriesController < ApplicationController
             flash[:message] = "Wine entry successfully created" if @wine_entry.id
             redirect "/wine_entries/#{@wine_entry.id}"
         else
-            flash[:errors] = "Uh oh! You can't have a blank entry. Please provide content for one of the spaces provided. You can edit the entry later."
+            flash[:errors] = "Uh oh! You can't have a blank entry. Please provide content for at least one of the spaces provided. You can edit the entry later."
             redirect '/wine_entries/new'
         end
     end
@@ -48,7 +48,7 @@ class WineEntriesController < ApplicationController
         set_wine_entry
         if authorized_to_edit?(@wine_entry) && params[:wine_name] != ""
             @wine_entry.update(wine_type: params[:wine_type], user_id: current_user.id, wine_name: params[:wine_name], vintage: params[:vintage], region: params[:region], wine_notes: params[:wine_notes])
-            flash[:message] = "Entry successfully edited."
+            flash[:message] = "Entry saved!"
             redirect "/wine_entries/#{@wine_entry.id}"
         else
             redirect "/users/#{current_user.id}"
