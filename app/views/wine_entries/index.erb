@@ -4,16 +4,17 @@
 <br>
 <% @wine_entries.each do |wine_entry| %>
     <a href="/wine_entries/<%= wine_entry.id %>"><%= wine_entry.formatted_created_at %></a>
-    <br><h5>created by <%= wine_entry.user.name %></h5>
-    <br><strong>Name of Wine:</strong> <%= wine_entry.wine_name %>
-    <br><strong>Type:</strong> <%= wine_entry.wine_type %>
-    <br><strong>Region:</strong> <%= wine_entry.region %>
-    <br><strong>Personal Notes:</strong> <%= wine_entry.wine_notes %>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+        <br><h5>created by <%= wine_entry.user.name %></h5>
+        <br><strong>Name of Wine:</strong> <%= wine_entry.wine_name %>
+        <br><strong>Type:</strong> <%= wine_entry.wine_type %>
+        <br><strong>Region:</strong> <%= wine_entry.region %>
+        <br><strong>Personal Notes:</strong> <%= wine_entry.wine_notes %>
+        <br>
+        <br>
+        <br>=======================================================================================================
+        <br>
+        <br>
+        <br>
 <% end %>
 
 
