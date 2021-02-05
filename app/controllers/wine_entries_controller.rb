@@ -62,7 +62,7 @@ class WineEntriesController < ApplicationController
             flash[:message] = "Successfully deleted entry."
             redirect '/wine_entries'
         else
-            redirect '/wine_entries'
+            redirect '/wine_entries/#{@wine_entry.id}'
         end
     end
     
