@@ -1,6 +1,6 @@
 <h2>Wine Entries</h2>
-<h5>created on <%= @wine_entry.formatted_created_at %></h5>
-<h5>by <%= @wine_entry.user.name %></h5>
+
+<p align="right"><h5> created on <%= @wine_entry.formatted_created_at %> by <em><%= @wine_entry.user.name %></em></h5></p>
 <br>
 <br>
 <p><strong>Name of Wine:</strong> <%= @wine_entry.wine_name %></p>
@@ -9,12 +9,14 @@
 <p><strong>Region:</strong> <%= @wine_entry.region %></p>
 <p><strong>Personal Notes:</strong> <%= @wine_entry.wine_notes %></p>
 
-<% if authorized_to_edit?(@wine_entry) %>
-    <a href="/wine_entries/<%= @wine_entry.id %>/edit"><input type="submit" value="Edit Entry"></a>
-    <form action="/wine_entries/<%= @wine_entry.id %>" method="post">
-        <input type="hidden" name="_method" value="DELETE">
-        <p align="right"><input type="submit" name = "" value="Delete Entry"></p>
-    </form>
+<% if authorized_to_edit?(@wine_entry) %>    
+        <a href="/wine_entries/<%= @wine_entry.id %>/edit"><input type="submit" value="Edit Entry"></a></p>
+        <form action="/wine_entries/<%= @wine_entry.id %>" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" name ="delete" value="Delete Entry">
+        </form> 
 <% end %>
-
-<a href="/wine_entries">Back</a>
+<br>
+<br>
+<br>
+<< <a href="/wine_entries">Back</a>
