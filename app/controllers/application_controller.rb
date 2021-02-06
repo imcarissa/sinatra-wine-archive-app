@@ -18,6 +18,7 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+
   helpers do
     
     def logged_in?
