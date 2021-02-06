@@ -1,6 +1,6 @@
-<h2>Wine Entry</h2>
+<h2>Wine Entries</h2>
 <h5>created on <%= @wine_entry.formatted_created_at %></h5>
-<h5>created by <%= @wine_entry.user.name %></h5>
+<h5>by <%= @wine_entry.user.name %></h5>
 <br>
 <br>
 <p><strong>Name of Wine:</strong> <%= @wine_entry.wine_name %></p>
@@ -16,3 +16,5 @@
         <p align="right"><input type="submit" name = "" value="Delete Entry"></p>
     </form>
 <% end %>
+
+<a href="/wine_entries">Back</a>
