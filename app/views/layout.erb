@@ -62,10 +62,10 @@
     <div class="wrapper">
 
       <% if flash[:message] %>
-        <h3 style="color: blue;"><em><%= flash[:message] %></></em>
+        <h3 style="color: rgb(122, 15, 72);"><em><%= flash[:message] %></></em>
       <% end %>
       <% if flash[:errors] %>
-        <h3 style="color: red;"><em><%= flash[:errors] %></h3></em>
+        <h3 style="color: rgb(199, 28, 28);"><em><%= flash[:errors] %></h3></em>
       <% end %>
     
       <%= yield %>
