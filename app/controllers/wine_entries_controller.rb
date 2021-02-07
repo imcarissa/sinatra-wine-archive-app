@@ -48,7 +48,7 @@ class WineEntriesController < ApplicationController
         set_wine_entry
         if authorized_to_edit?(@wine_entry) && params[:wine_name] != ""
             @wine_entry.update(wine_type: params[:wine_type], user_id: current_user.id, wine_name: params[:wine_name], vintage: params[:vintage], region: params[:region], wine_notes: params[:wine_notes])
-            flash[:message] = "Entry saved!"
+            flash[:message] = "Successfully saved!"
             redirect "/wine_entries/#{@wine_entry.id}"
         else
             redirect "/users/#{current_user.id}"
@@ -59,7 +59,7 @@ class WineEntriesController < ApplicationController
         set_wine_entry
         if authorized_to_edit?(@wine_entry)
             @wine_entry.destroy
-            flash[:message] = "Successfully deleted entry."
+            flash[:message] = "Your entry as been deleted."
             redirect '/wine_entries'
         else
             redirect '/wine_entries/#{@wine_entry.id}'
