@@ -1,9 +1,9 @@
-<h2>Wines Archived</h2>
-<h4 style="color: purple;"><em>You are viewing all wine submissions</h4></em>
+<h1>Wines In Archive</h1>
+<h2 style="color: purple;"><em>You are viewing all wine submissions</h4></em>
 <br>
 <br>
 <% @wine_entries.each do |wine_entry| %>
-    <a href="/wine_entries/<%= wine_entry.id %>"><%= wine_entry.formatted_created_at %></a>
+    <a href="/wine_entries/<%= wine_entry.id %>"><%= wine_entry.wine_name %><%= wine_entry.formatted_created_at %></a>
         <br><h5>created by <%= wine_entry.user.name %></h5>
         <br><strong>Name of Wine:</strong> <%= wine_entry.wine_name %>
         <br><strong>Type:</strong> <%= wine_entry.wine_type %>
