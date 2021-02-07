@@ -13,14 +13,14 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: rgb(95, 17, 37);
+    background-color: rgb(82, 8, 27);
     color: rgb(3, 3, 3);
-    font-family: "Dancing-Script";
+    font-family: "Yellowtail";
     line-height: 18px;
   }
 
   .wrapper {
-    background: rgb(4, 3, 22);
+    background: rgb(241, 234, 238);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -61,7 +61,7 @@
   }
 
   .sidebar {
-    background: #eee;
+    background: rgb(238, 237, 238);
     border: 1px solid #ccc;
     float: right;
     padding: 2.08333333333%; /* 5px / 240px */
