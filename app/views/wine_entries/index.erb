@@ -1,10 +1,10 @@
 <h1>Wines In Archive</h1>
-<h2 style="color: purple;"><em>You are viewing all wine submissions</h4></em>
+<h2 style="color: purple;"><em>You are viewing all wine submissions</h2></em>
 <br>
 <br>
 <% @wine_entries.each do |wine_entry| %>
-    <a href="/wine_entries/<%= wine_entry.id %>"><%= wine_entry.wine_name %><%= wine_entry.formatted_created_at %></a>
-        <br><h5>created by <%= wine_entry.user.name %></h5>
+    <a href="/wine_entries/<%= wine_entry.id %>"><%= wine_entry.wine_name %></a>
+        <br><h5>created by <%= wine_entry.user.name %> on <%= wine_entry.formatted_created_at %></h5>
         <br><strong>Name of Wine:</strong> <%= wine_entry.wine_name %>
         <br><strong>Type:</strong> <%= wine_entry.wine_type %>
         <br><strong>Region:</strong> <%= wine_entry.region %>
@@ -17,5 +17,3 @@
 <% end %>
 
 << <a href="/">Back to Show Page</a>
-
-
