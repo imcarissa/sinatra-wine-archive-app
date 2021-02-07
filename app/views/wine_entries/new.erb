@@ -1,30 +1,32 @@
-<h2>Wine Entry</h2>
-<h4 style="color: purple;"><em>Archive a bottle that you own, have tried, or would like to try some day.</h4></em>
-<br>
-<br>
-<form action="/wine_entries" method="post">
-   <strong> <label for="wine_name">Name of Wine:</label></strong>
-   <input type="text" name="wine_name">
+<h1>Wine Entry</h1>
+<h2 style="color: purple;"><em>Archive a bottle that you own, have tried, or would like to try some day.</em></h2>
    <br>
-   <h6><em>(ex: Who made the wine?, the domaine, chateau...)</em></h6>
    <br>
-   <strong><label for="wine_type">Type of Wine:</label></strong>
-   <input type="text" name="wine_type">
-   <br>
-   <h6><em>(ex: List between red, white, rose, or sparkling)</em></h6>
-   <br>
-   <strong><label for="vintage">Vintage:</label></strong>
-   <input type="integer" name="vintage">
-   <br>
-   <h6><em>(ex: Is there a year listed? Leave blank if you're not sure)</em></h6>
-   <br>
-   <strong><label for="region">Region:</label></strong>
-   <input type="text" name="region">
-   <br>
-   <h6><em>(ex: List by country)</em></h6>
-   <br>
-   <strong><label for="wine_notes">Personal Notes:</label></strong>
-   <h6><em>(What are the grapes/blend? Name of winery or store you purchased it from? Specific region of the country this wine is from? Did you like it? Tasting notes? What was the occasion for the bottle, or for where/when would you drink this again?)</em></h6>
+
+<form action="/wine_entries" method="post"> 
+   <h3><label for="wine_name">Name of Wine:</label></h3>
+   <input type="text" name="wine_name"><br>
+   <em>(ex: Who made the wine? List full name on the bottle including domaine, chateau, and winery)</em>
+      <br>
+      <br>
+   <h3><label for="wine_type">Type of Wine:</label></h3>
+   <input type="text" name="wine_type"><br>
+   <em>(List between red, white, rose, or sparkling)</em>
+      <br>
+      <br>
+   <h3><label for="vintage">Vintage:</label></h3>
+   <input type="integer" name="vintage"><br>
+   <em>(ex: Is there a year listed? Leave blank if you're not sure)</em>
+      <br>
+      <br>
+   <h3><label for="region">Region:</label></h3>
+   <input type="text" name="region"><br>
+   <em>(ex: List by country)</em>
+      <br>
+      <br>
+   <h3><label for="wine_notes">Personal Notes:</label></h3>
+   <em>(What are the grapes/blend? Name of winery or store you purchased it from? Specific region of the country this wine is from?
+   Did you like it? Tasting notes? What was the occasion for the bottle, or for where/when would you drink this again?)</em><br>
    <textarea name="wine_notes" style="width:300px; height:150px;"></textarea>
    <br>
    <br>
