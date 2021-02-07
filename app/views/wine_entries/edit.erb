@@ -1,32 +1,35 @@
 <h2>Edit this entry...</h2>
-<br>
-<br>
+
 <form action="/wine_entries/<%= @wine_entry.id %>" method="post">
    <input type="hidden" name="_method" value="patch">
 
-   <label for="wine_name">Name of Wine:</label>
-   <input type="text" name="wine_name" value="<%= @wine_entry.wine_name %>">
-   <br>
-   <br>
-   <label for="type">Type:</label>
-   <input type="text" name="wine_type" value="<%= @wine_entry.wine_type %>">
-   <br>
-   <br>
-   <label for="vintage">Vintage:</label>
-   <input type="text" name="vintage" value="<%= @wine_entry.vintage %>">
-   <br>
-   <br>
-   <label for="region">Region:</label>
-   <input type="text" name="region" value="<%= @wine_entry.region %>">
-   <br>
-   <br>
-   <label for="wine_notes">Personal Notes:</label>
-   <br>
+   <h3><label for="wine_name">Name of Wine:</label></h3>
+   <input type="text" name="wine_name" value="<%= @wine_entry.wine_name %>"> <em>(ex: Who made the wine? List full name on the bottle including domaine, chateau, and winery)</em>
+      <br>
+      <br>
+   <h3><label for="wine_type">Type of Wine:</label></h3>
+   <input type="text" name="wine_type" value="<%= @wine_entry.wine_type %>"> <em>(List between red, white, rose, or sparkling)</em>
+      <br>
+      <br>
+   <h3><label for="vintage">Vintage:</label></h3>
+   <input type="text" name="vintage" value="<%= @wine_entry.vintage %>"> <em>(ex: Is there a year listed? Leave blank if you're not sure)</em>
+      <br>
+      <br>
+   <h3><label for="region">Region:</label></h3>
+   <input type="text" name="region" value="<%= @wine_entry.region %>"> <em>(ex: List by area or country)</em>
+      <br>
+      <br>
+   <h3><label for="wine_notes">Personal Notes:</label></h3>
    <textarea name="wine_notes" style="width:300px; height:150px;"><%= @wine_entry.wine_notes %></textarea>
-   <br>
-   <br>
+      <br>What are the grapes/blend?
+      <br>Name of winery or store you purchased it from?
+      <br>Specific region of the country this wine is from?
+      <br>Did you like it? Tasting notes?
+      <br>What was the occasion for the bottle, or for where/when would you drink this again?)</>
+      <br>
+      <br>
    <input type="submit" name="" value="Save">
 </form>
-<br>
-<br>
+   <br>
+   <br>
 << <a href="/wine_entries">Back</a>
