@@ -16,12 +16,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
 
 
-
-
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
 
   <body>
+    
+    
     <div class="navigation">
        <br>
        <% if logged_in? %>
@@ -32,7 +32,7 @@
                 background:
                 linear-gradient(to bottom,rgb(250, 246, 246),rgb(171, 101, 130));
                 color:rgb(5, 2, 19)">
-          <a href="/wine_entries">View All Wines In Archive</a>
+                <a href="/wine_entries">View All Wines In Archive</a>
           </div>
             <br>
             <br>
@@ -43,7 +43,7 @@
                 background:
                 linear-gradient(to bottom,rgb(250, 246, 246),rgb(171, 101, 130));
                 color:rgb(5, 2, 19)">
-          <a href="/wine_entries/new">New Wine Entry</a>
+                <a href="/wine_entries/new">New Wine Entry</a>
           </div>
             <br>
             <br>
@@ -54,15 +54,15 @@
                 background:
                 linear-gradient(to bottom,rgb(250, 246, 246),rgb(171, 101, 130));
                 color:rgb(5, 2, 19)">
-          <a href="/logout">Logout</a>
+                <a href="/logout">Logout</a>
           </div>
         <% end %>
-    </div> 
+    </div>
    
     <div class="wrapper">
 
       <% if flash[:message] %>
-        <h3 style="color: rgb(57, 11, 150);"><em><%= flash[:message] %></></em>
+        <h3 style="color: rgb(57, 11, 150);"><em><%= flash[:message] %></h3></em>
       <% end %>
       <% if flash[:errors] %>
         <h3 style="color: rgb(199, 28, 28);"><em><%= flash[:errors] %></h3></em>
