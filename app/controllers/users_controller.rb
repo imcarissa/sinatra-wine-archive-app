@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
 
-    get '/login' do
-        erb :login 
-    end
-
+    get "/login" do
+        if logged_in?
+          redirect "/users/#{current_user.id}"
+        else
+          erb :login
+        end
+      end
+    
 
 
     post '/login' do
