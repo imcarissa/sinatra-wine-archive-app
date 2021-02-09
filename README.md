@@ -1,15 +1,12 @@
-A wine app that allows users to build their own archive.
-
-Users can create a wine entry and document the descriptions of the bottle. This can be used for wine enthusiasts of all levels: archive a bottle you own in your collection, have come across during an occasion, or something you saw and would like to try for the future.
-
-User can edit their own entries, and delete their own entries.
-
-
 # Wine Archive App
+
+A wine app that allows users to build their own archive.
 
 ## Purpose and Use
 
-This application was designed to keep track of coffee lover's favorite roasters/coffee shops, and their favorite beverages from those shops.
+This can be used for wine enthusiasts of all levels: Users can create a wine entry and document the descriptions of the bottle, archiving the bottle for their own virtual wine collection. If you've ever come come across a bottle during an occasion, would like to remember or commemorate for your memory, or something you saw and would like to try for the future, this app will help that you always remember the wines you liked and didn't like and hope to purchase again, since you can also list where it can be bought.
+
+User can edit their own entries, and delete their own entries.
 
 ### Gems for this Application
 - `gem 'sinatra'`
