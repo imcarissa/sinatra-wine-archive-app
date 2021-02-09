@@ -15,8 +15,8 @@ class WineEntriesController < ApplicationController
     
     post '/wine_entries' do
         redirect_if_not_logged_in
-        if params[:wine_name] !=""
-            @wine_entry = WineEntry.create(wine_type: params[:wine_type], user_id: current_user.id, wine_name: params[:wine_name], vintage: params[:vintage], region: params[:region], wine_notes: params[:wine_notes])
+        @wine_entry = WineEntry.create(wine_type: params[:wine_type], user_id: current_user.id, wine_name: params[:wine_name], vintage: params[:vintage], region: params[:region], wine_notes: params[:wine_notes])
+        if @wine_entry.valid?
             flash[:message] = "Wine entry successfully created" if @wine_entry.id
             redirect "/wine_entries/#{@wine_entry.id}"
         else
@@ -46,7 +46,7 @@ class WineEntriesController < ApplicationController
     patch '/wine_entries/:id' do
         redirect_if_not_logged_in
         set_wine_entry
-        if authorized_to_edit?(@wine_entry) && params[:wine_name] != ""
+        if authorized_to_edit?(@wine_entry)
             @wine_entry.update(wine_type: params[:wine_type], user_id: current_user.id, wine_name: params[:wine_name], vintage: params[:vintage], region: params[:region], wine_notes: params[:wine_notes])
             flash[:message] = "Successfully saved!"
             redirect "/wine_entries/#{@wine_entry.id}"
