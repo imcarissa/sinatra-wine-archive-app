@@ -15,6 +15,10 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  get "/about" do
+    erb :about
+  end
+
   
   helpers do
     
