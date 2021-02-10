@@ -2,7 +2,7 @@
 <h2 style="color: purple;"><em>You are viewing all wine submissions</h2></em>
 <br>
 <br>
-<% @wine_entries.each do |wine_entry| %>
+<% @wine_entries.reverse.each do |wine_entry| %>
     <a href="/wine_entries/<%= wine_entry.id %>"><%= wine_entry.wine_name %></a>
         <br><h5>created by <%= wine_entry.user.name %> on <%= wine_entry.formatted_created_at %></h5>
         <br><strong>Name of Wine:</strong> <%= wine_entry.wine_name %>
@@ -16,3 +16,6 @@
         <br>
 <% end %>
 << <a href="/login">Back to Show Page</a>
+<br>
+<br>
+<a href="/wine_entries">Top of the page</a>
